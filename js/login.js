@@ -8,7 +8,7 @@ document.getElementById('btn-submit').addEventListener('click', function () {
 
     // Verify email and password
     if (email == 'asmrsaeed@gmail.com' && password == 12345) {
-        console.log('correct');
+        window.location.href = 'bank.html'
     } else {
         alert('Invalid User')
     }
