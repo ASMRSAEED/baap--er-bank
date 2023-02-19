@@ -4,6 +4,7 @@ document.getElementById('btn-withdraw').addEventListener('click', function () {
     //Get the amount from field
     const withdrawField = document.getElementById('withdraw-field');
     const newWithdrawAmount = parseFloat(withdrawField.value)
+    withdrawField.value = '';
     if (typeof newWithdrawAmount !== "number" || isNaN(newWithdrawAmount) || newWithdrawAmount <= 0) {
         alert('Please Withdraw Valid Amount')
     } else {
@@ -13,7 +14,6 @@ document.getElementById('btn-withdraw').addEventListener('click', function () {
         //Get the main balance
         const balanceTotalElement = document.getElementById('balance-total');
         const previousBalanceTotal = parseFloat(balanceTotalElement.innerText);
-        withdrawField.value = '';
         if (newWithdrawAmount > previousBalanceTotal) {
             alert('Not Enough Balance')
             return;
