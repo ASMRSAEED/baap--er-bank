@@ -10,17 +10,18 @@ document.getElementById('btn-withdraw').addEventListener('click', function () {
         //Get the current withdraw
         const withdrawTotalElement = document.getElementById('withdraw-total');
         const previousWithdrawTotal = parseFloat(withdrawTotalElement.innerText);
+        //Get the main balance
+        const balanceTotalElement = document.getElementById('balance-total');
+        const previousBalanceTotal = parseFloat(balanceTotalElement.innerText);
+        withdrawField.value = '';
+        if (newWithdrawAmount > previousBalanceTotal) {
+            alert('Not Enough Balance')
+            return;
+        }
         //Update the total amount
         const currentWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
         //Set the update Amount
         withdrawTotalElement.innerText = currentWithdrawTotal;
-        ////Get the main balance
-        const balanceTotalElement = document.getElementById('balance-total');
-        const previousBalanceTotal = parseFloat(balanceTotalElement.innerText);
-        if (newWithdrawAmount > previousWithdrawTotal) {
-            alert('Not Enough Balance')
-            return;
-        }
         //Update the main balance
         const currentBalanceTotal = previousBalanceTotal - newWithdrawAmount;
         //Set the main balance
