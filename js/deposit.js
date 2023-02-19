@@ -1,12 +1,11 @@
-
 //Add Click Handler to the deposit button
 document.getElementById('btn-deposit').addEventListener('click', function () {
 
     //Get the amount from field
     const depositField = document.getElementById('deposit-field');
     const newDepositAmount = parseFloat(depositField.value)
-    if (newDepositAmount < 1) {
-        alert('Please Deposit Positive Amount')
+    if (typeof newDepositAmount !== "number" || isNaN(newDepositAmount) || newDepositAmount <= 0) {
+        alert('Please Deposit Valid Amount')
     } else {
         //Get the current deposit
         const depositTotalElement = document.getElementById('deposit-total');
